@@ -1,5 +1,5 @@
 module "mod1" {
-  source = "../../modules/mod1"
+  source = "../../modules/compute"
 
   zone = local.zone
 }
