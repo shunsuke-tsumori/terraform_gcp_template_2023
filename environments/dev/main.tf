@@ -1,5 +1,10 @@
-module "mod1" {
+module "compute" {
   source = "../../modules/compute"
 
-  zone = local.zone
+  zone            = local.zone
+  allow_http_name = module.network.allow_http_name
+}
+
+module "network" {
+  source = "../../modules/network"
 }

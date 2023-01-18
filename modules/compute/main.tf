@@ -3,7 +3,7 @@ resource "google_compute_instance" "default" {
   machine_type = "e2-medium"
   zone         = var.zone
 
-  tags = ["foo", "bar"]
+  tags = [var.allow_http_name]
 
   # tfsec:ignore:google-compute-vm-disk-encryption-customer-key
   boot_disk {
