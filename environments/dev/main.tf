@@ -1,3 +1,10 @@
+terraform {
+  backend "gcs" {
+    bucket = "dev_gcp_terraform_gcp_template_2023_tfstate"
+    prefix = "terraform/state"
+  }
+}
+
 module "compute" {
   source = "../../modules/compute"
 
