@@ -11,6 +11,7 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
+      - uses: actions/checkout@v3
       - name: auth
         id: 'google-cloud-auth'
         uses: google-github-actions/auth@v1
@@ -23,6 +24,11 @@ jobs:
       - name: Google Cloud login
         run: gcloud auth login --brief --cred-file="${{ steps.google-cloud-auth.outputs.credentials_file_path }}"
 
-      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
 
-#      - id:
+      - name: terraform init
+        run:
+          terraform init
+        working-directory: ./environments/dev
+        env:
+          TF_VAR_dev_access_token: ${{ steps.google-cloud-auth.outputs.credentials_file_path }}
