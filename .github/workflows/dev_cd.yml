@@ -27,7 +27,8 @@ jobs:
       - uses: hashicorp/setup-terraform@v2
 
       - name: terraform init
-        run:
+        run: |
+          echo $TF_VAR_dev_access_token
           terraform init
         working-directory: ./environments/dev
         env:
