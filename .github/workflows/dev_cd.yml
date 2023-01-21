@@ -31,3 +31,4 @@ jobs:
         working-directory: ./environments/dev
         env:
           TF_VAR_dev_access_token: ${{ steps.google-cloud-auth.outputs.credentials_file_path }}
+          $GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.google-cloud-auth.outputs.credentials_file_path }}
