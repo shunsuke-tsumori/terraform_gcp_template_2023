@@ -27,9 +27,7 @@ jobs:
       - uses: hashicorp/setup-terraform@v2
 
       - name: terraform init
-        run: |
-          echo $TF_VAR_dev_access_token
-          terraform init
+        run: terraform init
         working-directory: ./environments/dev
         env:
           TF_VAR_dev_access_token: ${{ steps.google-cloud-auth.outputs.credentials_file_path }}
