@@ -9,5 +9,3 @@
 #  type        = string
 #  sensitive   = true
 #}
-
-variable "dev_access_token" {}
